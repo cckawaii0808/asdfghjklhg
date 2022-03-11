@@ -1,10 +1,15 @@
 package com.ccplay.asdfghjklhg
+
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
+import androidx.appcompat.widget.ActionMenuView
+import com.ccplay.asdfghjklhg.databinding.ActivityMainBinding
+
+
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.auth.ktx.auth
@@ -12,43 +17,40 @@ import com.google.firebase.ktx.Firebase
 
 class MainActivity : AppCompatActivity() {
     private val TAG = MainActivity::class.java.simpleName
-    private lateinit var email: EditText
-    private lateinit var password: EditText
-    private lateinit var signup: Button
-    private lateinit var sEmail: String
-    private lateinit var sPassword: String
+    private lateinit var binding: ActivityMainBinding
     private lateinit var auth: FirebaseAuth
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
-
+        binding = ActivityMainBinding.inflate(layoutInflater)
+        setContentView(binding.root)
         auth = Firebase.auth
-        email = findViewById(R.id.email)
-        password = findViewById(R.id.password)
-        signup = findViewById(R.id.signup)
-        sEmail = email.text.toString()
-        sPassword = password.text.toString()
-        signup.setOnClickListener {
-            auth.createUserWithEmailAndPassword("anfjnokn@yahoo.com.tw", "dqwjggsdk5")
+        binding.signup.setOnClickListener {
+            val email = binding.TVemail.text.toString()
+            val password = binding.tvpassword.text.toString()
+            Log.d(TAG,"使用者帳號:$email 使用者密碼: $password")
+            auth.createUserWithEmailAndPassword(email, password)
                 .addOnCompleteListener(this) { task ->
                     if (task.isSuccessful) {
                         // Sign in success, update UI with the signed-in user's information
-                        Log.d(TAG, "")
+                        Log.d(TAG, "註冊成功")
                         val user = auth.currentUser
                         updateUI(user)
                     } else {
                         // If sign in fails, display a message to the user.
-                        Log.w(TAG, "createUserWithEmail:failure", task.exception)
-                        Toast.makeText(baseContext, "Authentication failed.",
-                            Toast.LENGTH_SHORT).show()
+                        Log.w(TAG, "註冊失敗", task.exception)
+                        Toast.makeText(
+                            baseContext, "註冊失敗.",
+                            Toast.LENGTH_SHORT
+                        ).show()
                         //  updateUI(null)
                     }
                 }
         }
     }
-
     private fun updateUI(user: FirebaseUser?) {
-        Toast.makeText(baseContext, "RRRRRR",
-            Toast.LENGTH_SHORT).show()
+        Toast.makeText(
+            baseContext, "畫面轉換",
+            Toast.LENGTH_SHORT
+        ).show()
     }
 }
