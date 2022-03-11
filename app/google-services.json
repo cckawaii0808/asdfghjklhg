@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "129904443373",
+    "project_id": "cclooo",
+    "storage_bucket": "cclooo.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:129904443373:android:9c3a78cdca376a494871e4",
+        "android_client_info": {
+          "package_name": "com.ccplay.asdfghjklhg"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "129904443373-eel2ka5q3e1mod5trcgnu3ej7kfj3qnr.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBThNSLfVFkjAC3wTq9T2ZmD42MxNcG8-I"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "129904443373-eel2ka5q3e1mod5trcgnu3ej7kfj3qnr.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
